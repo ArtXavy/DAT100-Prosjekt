@@ -17,13 +17,26 @@ public class Invoice {
 
     public Invoice(Customer c, String month, double[][] usage, double[][] power_prices) {
 
-        // TODO - konstruktør
+        this.c = c;
+        this.month = month;
+        this.usage = usage;
+        this.prices = power_prices;
+        this.amount = 0;
 
     }
 
     public void computeAmount() {
 
-        // TODO
+        amount = 0;
+
+        for (int i = 0; i < usage.length; i++) {
+            for (int j = 0; j < usage[i].length; j++) {
+                double kwh = usage[i][j];
+                double price = prices[i][j];
+
+                amount += kwh * price;
+            }
+        }
 
     }
 

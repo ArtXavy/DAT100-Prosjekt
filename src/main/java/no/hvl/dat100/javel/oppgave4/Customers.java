@@ -30,7 +30,13 @@ public class Customers {
         boolean funnet = false;
         Customer c = null;
 
-        // TODO
+        for (int i = 0; i < customers.length; i++) {
+            if (customers[i] != null && customers[i].getCustomer_id() == customer_id) {
+                
+                c = customers[i];
+                funnet = true
+            }
+        }
 
         return c;
     }
@@ -40,7 +46,12 @@ public class Customers {
 
         boolean inserted = false;
 
-        // TODO
+            for (int i = 0; i < customers.length; i++) {
+                if (customers[i] == null) {
+                    customers[i] = c;
+                    inserted true;
+                }
+            }
 
         return inserted;
     }
