@@ -42,7 +42,11 @@ public class Invoice {
 
     public void printInvoice() {
 
-        // TODO
+        System.out.println(c);
+        System.out.println();
+        System.out.println("Month: " + month);
+        System.out.printf("Usage: %11.2f kWh%n", MonthlyPower.computePowerUsage(usage));
+        System.out.printf("Amount: %10.2f NOK%n", amount);
 
     }
 }

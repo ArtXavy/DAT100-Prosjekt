@@ -24,7 +24,6 @@ public class Customers {
 
         return count;
     }
-}
 
     // c) return reference to customer with given id (if exists)
     public Customer getCustomer(int customer_id) {
@@ -34,7 +33,7 @@ public class Customers {
 
         for (int i = 0; i < customers.length; i++) {
             if (customers[i] != null && customers[i].getCustomer_id() == customer_id) {
-                
+
                 c = customers[i];
                 funnet = true;
             }
@@ -65,7 +64,15 @@ public class Customers {
         boolean deleted = false;
         Customer c = null;
 
-        // TODO
+        int i = 0;
+        while (i < customers.length && !deleted) {
+            if (customers[i] != null && customers[i].getCustomer_id() == customer_id) {
+                c = customers[i];
+                customers[i] = null;
+                deleted = true;
+            }
+            i++;
+        }
 
         return c;
     }
@@ -73,9 +80,15 @@ public class Customers {
     // f) return reference table with all customers
     public Customer[] getCustomers() {
 
-        Customer[] customers = null;
+        Customer[] customers = new Customer[countNonNull()];
 
-        // TODO
+        int pos = 0;
+        for (int i = 0; i < this.customers.length; i++) {
+            if (this.customers[i] != null) {
+                customers[pos] = this.customers[i];
+                pos++;
+            }
+        }
 
         return customers;
     }

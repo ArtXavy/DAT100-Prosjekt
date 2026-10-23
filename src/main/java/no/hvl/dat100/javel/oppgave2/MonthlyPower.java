@@ -7,14 +7,20 @@ public class MonthlyPower {
     // a) print power usage for a month
     public static void print_PowerUsage(double[][] usage) {
 
-        // TODO
+        for (int i = 0; i < usage.length; i++) {
+            System.out.print("Day " + (i + 1) + ":");
+            DailyPower.printPowerUsage(usage[i]);
+        }
 
     }
 
     // b) print power prices for a month
     public static void print_PowerPrices(double[][] prices) {
 
-        // TODO
+        for (int i = 0; i < prices.length; i++) {
+            System.out.print("Day " + (i + 1) + ":");
+            DailyPower.printPowerPrices(prices[i]);
+        }
 
     }
 
@@ -23,7 +29,11 @@ public class MonthlyPower {
 
         double sum = 0;
 
-        // TODO
+        for (int i = 0; i < usage.length; i++) {
+            for (int j = 0; j < usage[i].length; j++) {
+                sum += usage[i][j];
+            }
+        }
 
         return sum;
     }
@@ -34,7 +44,18 @@ public class MonthlyPower {
         boolean exceeded = false;
         double usage = 0;
 
-        // TODO
+        int i = 0;
+        while (i < powerusage.length && !exceeded) {
+            int j = 0;
+            while (j < powerusage[i].length && !exceeded) {
+                usage += powerusage[i][j];
+                if (usage > threshold) {
+                    exceeded = true;
+                }
+                j++;
+            }
+            i++;
+        }
 
         return exceeded;
     }
@@ -44,7 +65,9 @@ public class MonthlyPower {
 
         double price = 0;
 
-        // TODO
+        for (int i = 0; i < usage.length; i++) {
+            price += DailyPower.computeSpotPrice(usage[i], prices[i]);
+        }
 
         return price;
     }
@@ -54,7 +77,9 @@ public class MonthlyPower {
 
         double support = 0;
 
-        // TODO
+        for (int i = 0; i < usage.length; i++) {
+            support += DailyPower.computePowerSupport(usage[i], prices[i]);
+        }
 
         return support;
     }
@@ -64,7 +89,9 @@ public class MonthlyPower {
 
         double price = 0;
 
-        // TODO
+        for (double[] day : usage) {
+            price += DailyPower.computeNorgesPrice(day);
+        }
 
         return price;
     }
