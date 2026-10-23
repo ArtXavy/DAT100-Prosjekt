@@ -34,7 +34,7 @@ public class Customers {
             if (customers[i] != null && customers[i].getCustomer_id() == customer_id) {
                 
                 c = customers[i];
-                funnet = true
+                funnet = true;
             }
         }
 
@@ -49,7 +49,8 @@ public class Customers {
             for (int i = 0; i < customers.length; i++) {
                 if (customers[i] == null) {
                     customers[i] = c;
-                    inserted true;
+                    inserted = true;
+                    break;
                 }
             }
 
